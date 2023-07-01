@@ -53,7 +53,6 @@ class MainActivity : AppCompatActivity() {
                     post.views++
                     numberViews.text = roundingNumbers(post.views.toLong())
                 }
-            binding.root.setOnClickListener { println("root") }
             }
         }
 
