@@ -26,35 +26,35 @@ class MainActivity : AppCompatActivity() {
             numberShare.text = roundingNumbers(post.shares.toLong())
             numberViews.text = roundingNumbers(post.views.toLong())
 
+            if (post.likedByMe) {
+                like.setImageResource(R.drawable.filled_favorite)
+            } else {
+                like.setImageResource(R.drawable.ic_baseline_favorite_border_24)
+            }
+            numberLikes.text = roundingNumbers(post.views.toLong())
+
+            binding.like.setOnClickListener {
+                post.likedByMe = !post.likedByMe
                 if (post.likedByMe) {
                     like.setImageResource(R.drawable.filled_favorite)
+                    post.likes++
                 } else {
                     like.setImageResource(R.drawable.ic_baseline_favorite_border_24)
+                    post.likes--
                 }
-                numberLikes.text = roundingNumbers(post.views.toLong())
+                numberLikes.text = roundingNumbers(post.likes.toLong())
+            }
 
-                binding.like.setOnClickListener {
-                    post.likedByMe = !post.likedByMe
-                    if (post.likedByMe) {
-                        like.setImageResource(R.drawable.filled_favorite)
-                        post.likes++
-                    } else {
-                        like.setImageResource(R.drawable.ic_baseline_favorite_border_24)
-                        post.likes--
-                    }
-                    numberLikes.text = roundingNumbers(post.likes.toLong())
-                }
-
-                binding.share.setOnClickListener {
-                    post.shares++
-                    numberShare.text = roundingNumbers(post.shares.toLong())
-                }
-                binding.views.setOnClickListener {
-                    post.views++
-                    numberViews.text = roundingNumbers(post.views.toLong())
-                }
+            binding.share.setOnClickListener {
+                post.shares++
+                numberShare.text = roundingNumbers(post.shares.toLong())
+            }
+            binding.views.setOnClickListener {
+                post.views++
+                numberViews.text = roundingNumbers(post.views.toLong())
             }
         }
-
     }
+
+}
 
