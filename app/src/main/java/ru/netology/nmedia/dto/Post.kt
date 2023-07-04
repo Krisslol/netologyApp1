@@ -8,10 +8,10 @@ data class Post(
     val author: String,
     val content: String,
     val published: String,
-    var likes: Int = 99999,
-    var shares:Int = 1099,
-    var views:Int = 999999,
-    var likedByMe: Boolean = false
+    val likes: Int = 99999,
+    val shares:Int = 10,
+    val views:Int = 999999,
+    val likedByMe: Boolean = false
 )
 
 fun roundingNumbers(number:Long): String {
