@@ -8,7 +8,6 @@ interface PostRepository {
     fun getAll(): LiveData<List<Post>>
     fun likeById(id:Long)
     fun numberShare(id:Long)
-    fun numberLikes(id:Long)
 
 //    fun shareById(id:Long)
   //  fun viewsById(id:Long)

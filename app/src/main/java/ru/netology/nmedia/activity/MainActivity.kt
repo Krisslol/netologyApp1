@@ -16,7 +16,6 @@ class MainActivity : AppCompatActivity() {
         val viewModel: PostViewModel by viewModels()
         val adapter = PostsAdapter({
             viewModel.likeById(it.id)
-            viewModel.numberLikes(it.id)
         },
             {
             viewModel.numberShare(it.id)
