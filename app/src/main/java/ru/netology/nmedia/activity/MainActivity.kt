@@ -19,7 +19,10 @@ class MainActivity : AppCompatActivity() {
         },
             {
             viewModel.numberShare(it.id)
-        }
+        },
+            {
+                viewModel.removeById(it.id)
+            }
           )
         binding.list.adapter = adapter
         viewModel.data.observe(this) { posts ->

@@ -3,5 +3,6 @@
     <string name="app_name">НМедия</string>
     <string name="hello">НМедия!</string>
     <string name="avatar">аватар</string>
+    <string name="remove_menu">Удалить</string>
 
 </resources>

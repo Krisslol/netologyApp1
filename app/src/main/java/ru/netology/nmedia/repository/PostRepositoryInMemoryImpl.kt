@@ -87,41 +87,49 @@ class PostRepositoryInMemoryImpl : PostRepository {
 
     override fun likeById(id: Long) {
         posts = posts.map {
-            if (it.id != id) it else it.copy(likedByMe = !it.likedByMe, likes = if(it.likedByMe)it.likes -1 else it.likes+1)
+            if (it.id != id) it else it.copy(
+                likedByMe = !it.likedByMe,
+                likes = if (it.likedByMe) it.likes - 1 else it.likes + 1
+            )
 
         }
         data.value = posts
 
     }
+
     override fun numberShare(id: Long) {
         posts = posts.map {
-            if (it.id !=id) it else it.copy (shares = it.shares + 1)
+            if (it.id != id) it else it.copy(shares = it.shares + 1)
 
         }
         data.value = posts
 
     }
 
+    override fun removeById(id: Long) {
+        posts = posts.filter { it.id != id }
 
-  //  override fun likeById() {
-   //     posts = posts.copy(
-  //         likedByMe = !post.likedByMe,
-     //       likes = if (post.likedByMe) post.likes - 1 else post.likes + 1
+        data.value = posts
+    }
+
+    //  override fun likeById() {
+    //     posts = posts.copy(
+    //         likedByMe = !post.likedByMe,
+    //       likes = if (post.likedByMe) post.likes - 1 else post.likes + 1
     //    )
-   //     data.value = posts
-  //  }
+    //     data.value = posts
+    //  }
 
-  //  override fun shareById(id:Long) {
-  //      posts = posts.map {
-  //          if (it.id != id) it else it.copy(shares = !it.shares)
-  //      }
-            //     data.value = posts
- //   }
- //      override fun viewsById(id: Long) {
-  //          posts = posts.map { if (it.id != id) it else it.copy() }
-  //          data.value = posts
- //       }
-
+    //  override fun shareById(id:Long) {
+    //      posts = posts.map {
+    //          if (it.id != id) it else it.copy(shares = !it.shares)
+    //      }
+    //     data.value = posts
+    //   }
+    //      override fun viewsById(id: Long) {
+    //          posts = posts.map { if (it.id != id) it else it.copy() }
+    //          data.value = posts
+    //       }
 
 
 }
