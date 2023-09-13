@@ -4,5 +4,8 @@
     <string name="hello">НМедия!</string>
     <string name="avatar">аватар</string>
     <string name="remove_menu">Удалить</string>
-
+    <string name="edit">Редактировать</string>
+    <string name="post_text">Введите текст</string>
+    <string name="error_empty_content">Содержимое не может быть пустым</string>
+    <string name="edit_text">Редактирование текста</string>
 </resources>

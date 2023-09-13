@@ -11,7 +11,7 @@ data class Post(
     val likes: Int = 1,
     val shares:Int = 10,
     val views:Int = 999999,
-    val likedByMe: Boolean = false
+    val likedByMe: Boolean = false,
 )
 
 fun roundingNumbers(number:Long): String {

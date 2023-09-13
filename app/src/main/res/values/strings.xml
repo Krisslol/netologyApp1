@@ -7,4 +7,8 @@
     <string name="views" translatable="false"/>
     <string name="menu" translatable="false" />
     <string name="remove_menu">Remove</string>
+    <string name="edit">Edit</string>
+    <string name="post_text">Enter text</string>
+    <string name="error_empty_content">Content can\'t be empty</string>
+    <string name="edit_text">Edit text</string>
 </resources>
