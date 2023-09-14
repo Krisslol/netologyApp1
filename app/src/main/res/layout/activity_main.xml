@@ -58,7 +58,9 @@
         app:layout_constraintEnd_toStartOf="@id/cancel"
         app:layout_constraintStart_toStartOf="parent"
         android:maxLines="1"
-        android:inputType="text" />
+        android:inputType=""
+        android:editable="false"
+        />
 
     <ImageButton
         android:id="@+id/edit"

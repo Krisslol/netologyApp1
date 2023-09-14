@@ -64,11 +64,11 @@ class MainActivity : AppCompatActivity() {
             if (post.id == 0L) {
                 return@observe
             }
-            with(binding.content) {
-                requestFocus()
-                setText(post.content)
-                focusAndShowKeyboard()
-            }
+            //  with(binding.content) {
+            //   requestFocus()
+            //    setText(post.content)
+            //    focusAndShowKeyboard()
+            //  }
             with(binding) {
                 cancel.visibility = View.VISIBLE
                 edit.visibility = View.VISIBLE
@@ -76,9 +76,19 @@ class MainActivity : AppCompatActivity() {
                 editText.visibility = View.VISIBLE
                 editMessage.clearFocus()
             }
-            with(binding.editMessage){
-                setText(post.content)
 
+            //    with(binding.editMessage) {
+            //     setText(post.content)
+
+            // }
+
+            with(binding) {
+                content.apply {
+                    requestFocus()
+                    setText(post.content)
+                    focusAndShowKeyboard()
+                }
+                editMessage.setText(post.content)
             }
         }
         binding.save.setOnClickListener {
@@ -93,27 +103,22 @@ class MainActivity : AppCompatActivity() {
             binding.content.clearFocus()
             AndroidUtils.hideKeyboard(it)
 
-            with(binding) {
-                cancel.visibility = View.GONE
-                edit.visibility = View.GONE
-                editMessage.visibility = View.GONE
-                editText.visibility = View.GONE
+            binding.cancel.setOnClickListener {
+                with(binding) {
+                    content.setText("")
+                    cancel.clearFocus()
+                    content.clearFocus()
+                    AndroidUtils.hideKeyboard(it)
+                    cancel.visibility = View.GONE
+                    edit.visibility = View.GONE
+                    editMessage.visibility = View.GONE
+                    editText.visibility = View.GONE
+                }
             }
+
 
         }
 
-        binding.cancel.setOnClickListener {
-            binding.content.setText("")
-            binding.cancel.clearFocus()
-            binding.content.clearFocus()
-            AndroidUtils.hideKeyboard(it)
-            with(binding) {
-                cancel.visibility = View.GONE
-                edit.visibility = View.GONE
-                editMessage.visibility = View.GONE
-                editText.visibility = View.GONE
-            }
-        }
     }
 }
 
