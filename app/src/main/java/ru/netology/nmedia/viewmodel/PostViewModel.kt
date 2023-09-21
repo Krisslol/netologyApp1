@@ -11,6 +11,7 @@ private val empty = Post(
     author = "",
     likedByMe = false,
     published = "",
+    likes = 0,
 )
 
 

@@ -44,13 +44,6 @@ class MainActivity : AppCompatActivity() {
 
         }
         )
-        with(binding) {
-            cancel.visibility = View.GONE
-            edit.visibility = View.GONE
-            editMessage.visibility = View.GONE
-            editText.visibility = View.GONE
-            editMessage.clearFocus()
-        }
         binding.list.adapter = adapter
         viewModel.data.observe(this) { posts ->
             val newPost = posts.size > adapter.currentList.size
@@ -70,11 +63,7 @@ class MainActivity : AppCompatActivity() {
                 focusAndShowKeyboard()
             }
             with(binding) {
-                cancel.visibility = View.VISIBLE
-                edit.visibility = View.VISIBLE
-                editMessage.visibility = View.VISIBLE
-                editText.visibility = View.VISIBLE
-                editMessage.clearFocus()
+                group.visibility = View.VISIBLE
             }
 
             with(binding.editMessage) {
@@ -98,10 +87,11 @@ class MainActivity : AppCompatActivity() {
                 cancel.clearFocus()
                 content.clearFocus()
                 AndroidUtils.hideKeyboard(it)
-                cancel.visibility = View.GONE
-                edit.visibility = View.GONE
-                editMessage.visibility = View.GONE
-                editText.visibility = View.GONE
+                group.visibility = View.GONE
+                // cancel.visibility = View.GONE
+                // edit.visibility = View.GONE
+                //   editMessage.visibility = View.GONE
+                //  editText.visibility = View.GONE
             }
         }
         binding.save.setOnClickListener {
@@ -120,10 +110,7 @@ class MainActivity : AppCompatActivity() {
                 cancel.clearFocus()
                 content.clearFocus()
                 AndroidUtils.hideKeyboard(it)
-                cancel.visibility = View.GONE
-                edit.visibility = View.GONE
-                editMessage.visibility = View.GONE
-                editText.visibility = View.GONE
+                group.visibility = View.GONE
             }
 
 

@@ -11,13 +11,13 @@ import ru.netology.nmedia.databinding.CardPostBinding
 import ru.netology.nmedia.dto.Post
 import ru.netology.nmedia.dto.roundingNumbers
 
-interface OnInteractionListener{
-    fun like (post: Post)
-    fun remove (post: Post)
-    fun edit (post: Post)
-    fun share (post: Post)
+interface OnInteractionListener {
+    fun like(post: Post)
+    fun remove(post: Post)
+    fun edit(post: Post)
+    fun share(post: Post)
 
-    fun cancel (post: Post)
+    fun cancel(post: Post)
 
 }
 
@@ -45,12 +45,13 @@ class PostViewHolder(
             author.text = post.author
             published.text = post.published
             content.text = post.content
-            numberLikes.text = roundingNumbers(post.likes.toLong())
-            numberViews.text = roundingNumbers(post.views.toLong())
-            numberShare.text = roundingNumbers(post.shares.toLong())
-            like.setImageResource(
-                if (post.likedByMe) R.drawable.filled_favorite else R.drawable.ic_baseline_favorite_border_24
-            )
+           //numberLikes.text = roundingNumbers(post.likes.toLong())
+            //numberViews.text = roundingNumbers(post.views.toLong())
+           // numberShare.text = roundingNumbers(post.shares.toLong())
+
+            like.isChecked = post.likedByMe
+            like.text = post.likes.toString()
+
             like.setOnClickListener {
                 onInteractionListener.like(post)
             }
@@ -66,10 +67,12 @@ class PostViewHolder(
                                 onInteractionListener.remove(post)
                                 true
                             }
-R.id.edit -> {
-    onInteractionListener.edit(post)
-    true
-}
+
+                            R.id.edit -> {
+                                onInteractionListener.edit(post)
+                                true
+                            }
+
                             else -> false
                         }
 
