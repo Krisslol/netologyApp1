@@ -2,12 +2,34 @@
 <resources>
 
 
-    <style name="Wigdget.AppTheme.LikeButton" parent="Widget.MaterialComponents.Button.TextButton.Icon">
+    <style name="Widget.AppTheme.LikeButton" parent="Widget.MaterialComponents.Button.TextButton.Icon">
 
         <item name="iconTint">@color/like_selector</item>
         <item name="android:minWidth">0dp</item>
         <item name="android:textColor">?attr/colorControlNormal</item>
 
     </style>
+
+    <style name="Widget.AppTheme.shareButton" parent="Widget.MaterialComponents.Button.TextButton.Icon">
+
+        <item name="iconTint">@color/share_selector</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:textColor">?attr/colorControlNormal</item>
+    </style>
+
+    <style name="Widget.AppTheme.viewButton" parent="Widget.MaterialComponents.Button.TextButton.Icon">
+
+        <item name="iconTint">@color/view_selector</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:textColor">?attr/colorControlNormal</item>
+    </style>
+
+    <style name="Widget.AppTheme.menuButton" parent="Widget.MaterialComponents.Button.TextButton.Icon">
+
+        <item name="iconTint">@color/menu_selector</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:textColor">?attr/colorControlNormal</item>
+    </style>
+
 
 </resources>

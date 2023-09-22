@@ -45,19 +45,20 @@ class PostViewHolder(
             author.text = post.author
             published.text = post.published
             content.text = post.content
-           //numberLikes.text = roundingNumbers(post.likes.toLong())
-            //numberViews.text = roundingNumbers(post.views.toLong())
-           // numberShare.text = roundingNumbers(post.shares.toLong())
 
             like.isChecked = post.likedByMe
-            like.text = post.likes.toString()
-
+            like.text = roundingNumbers(post.likes.toLong())
             like.setOnClickListener {
                 onInteractionListener.like(post)
             }
+
+            share.text = roundingNumbers(post.shares.toLong())
             share.setOnClickListener {
                 onInteractionListener.share(post)
             }
+
+            views.text = roundingNumbers(post.views.toLong())
+
             menu.setOnClickListener {
                 PopupMenu(it.context, it).apply {
                     inflate(R.menu.menu_options)
