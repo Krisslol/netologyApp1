@@ -11,4 +11,10 @@
     <string name="post_text">Enter text</string>
     <string name="error_empty_content">Content can\'t be empty</string>
     <string name="edit_text">Edit text</string>
+    <string name="chooser_share_post">Share</string>
+    <string name="description_post_share">Share</string>
+    <string name="description_post_save">Save</string>
+    <string name="add_post">Add post</string>
+    <string name="cancel">Cancel editing</string>
+
 </resources>

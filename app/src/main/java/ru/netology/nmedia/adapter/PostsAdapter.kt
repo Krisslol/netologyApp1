@@ -17,7 +17,6 @@ interface OnInteractionListener {
     fun edit(post: Post)
     fun share(post: Post)
 
-    fun cancel(post: Post)
 
 }
 

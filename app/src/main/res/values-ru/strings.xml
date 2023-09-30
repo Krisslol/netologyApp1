@@ -8,4 +8,10 @@
     <string name="post_text">Введите текст</string>
     <string name="error_empty_content">Содержимое не может быть пустым</string>
     <string name="edit_text">Редактирование текста</string>
+    <string name="chooser_share_post">Поделиться</string>
+    <string name="description_post_share">Поделиться</string>
+    <string name="description_post_save">Сохранить</string>
+    <string name="add_post">Добавить пост</string>
+    <string name="cancel">Отменить редактирование</string>
+
 </resources>

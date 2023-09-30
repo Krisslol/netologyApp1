@@ -20,14 +20,18 @@ class PostViewModel : ViewModel() {
     val data = repository.getAll()
     val edited = MutableLiveData(empty)
 
-    fun changeContentAndSave(content: String){
+    fun save() {
         edited.value?.let {
-            val text = content.trim()
-            if (it.content != text) {
-                repository.save(it.copy(content = text))
-            }
-            edited.value = empty
+            repository.save(it)
         }
+        edited.value = empty
+    }
+    fun changeContent(content: String) {
+        val text = content.trim()
+        if (edited.value?.content == text) {
+            return
+        }
+        edited.value = edited.value?.copy(content = text)
     }
     fun likeById(id: Long) = repository.likeById(id)
     fun shareById(id: Long) = repository.numberShare(id)
@@ -35,5 +39,4 @@ class PostViewModel : ViewModel() {
     fun edit(post: Post) {
 edited.value = post
     }
-fun cancel (id: Long) = repository.cancel(id)
 }
