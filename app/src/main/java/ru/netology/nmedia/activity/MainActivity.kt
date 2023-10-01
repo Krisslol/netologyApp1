@@ -3,6 +3,7 @@ package ru.netology.nmedia.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.launch
 import androidx.activity.viewModels
 import ru.netology.nmedia.R
@@ -30,8 +31,13 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun edit(post: Post) {
-
                 viewModel.edit(post)
+                val editPostLauncher = registerForActivityResult(EditPostResultContract()) { result ->
+                    result ?: return@registerForActivityResult
+                    viewModel.changeContent(result)
+                    viewModel.save()
+                }
+                editPostLauncher.launch(post.content)
             }
 
 
@@ -49,7 +55,12 @@ class MainActivity : AppCompatActivity() {
         })
         binding.list.adapter = adapter
         viewModel.data.observe(this) { posts ->
-            adapter.submitList(posts)
+            val newPost = posts.size >adapter.currentList.size
+            adapter.submitList(posts){
+                if(newPost) {
+                    binding.list.smoothScrollToPosition(0)
+                }
+            }
         }
 
         val newPostLauncher = registerForActivityResult(NewPostResultContract()) { result ->
@@ -63,15 +74,16 @@ class MainActivity : AppCompatActivity() {
             viewModel.changeContent(result)
             viewModel.save()
         }
+      //  editPostLauncher.launch(null)
 
 
 
         binding.fab.setOnClickListener {
             newPostLauncher.launch()
         }
-        bindingCard.menu.setOnClickListener{
-            editPostLauncher.launch()
-        }
+      // edit.setOnClickListener{
+     //              editPostLauncher.launch()
+    //   }
     }
 }
 
